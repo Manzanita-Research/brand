@@ -1,0 +1,7 @@
+{
+  "name": "tui-design",
+  "description": "Build terminal user interfaces for Manzanita Research — warm, textured, California-rooted TUI design for CLI tools and interactive terminals. Go + Bubble Tea + Lip Gloss. Use when building TUI dashboards, interactive CLIs, terminal menus, status displays, or any terminal interface for Manzanita projects.",
+  "version": "0.1.2",
+  "license": "Complete terms in LICENSE.txt",
+  "skills": "./"
+}

@@ -1,0 +1,38 @@
+{
+  "name": "manzanita-research",
+  "owner": {
+    "name": "manzanita-research"
+  },
+  "plugins": [
+    {
+      "name": "brand-voice",
+      "source": "./org/skills/brand-voice",
+      "description": "Write in the Manzanita Research voice — warm, grounded, direct, never corporate. Use for any prose output: READMEs, marketing pages, social posts, changelogs, error messages, UI copy, blog posts, or any text that carries the brand.",
+      "version": "0.1.3"
+    },
+    {
+      "name": "frontend-design",
+      "source": "./org/skills/frontend-design",
+      "description": "Build frontend interfaces for Manzanita Research — warm, editorial, California-rooted design for music tools and brand pages. React + Tailwind. Use when building web components, pages, landing pages, dashboards, plugin UIs, or any web interface for Manzanita projects.",
+      "version": "0.1.3"
+    },
+    {
+      "name": "generate-hero-prompt",
+      "source": "./org/skills/generate-hero-prompt",
+      "description": "Generate image prompts for Manzanita Research hero images. Reads the current repo to infer what the project is, then writes prompts you can paste into Flora or any text-to-image tool. Eco-futurist, feminine, 1980s-meets-2180s California.",
+      "version": "0.1.3"
+    },
+    {
+      "name": "pitch-md",
+      "source": "./org/skills/pitch-md",
+      "description": "Create or update a PITCH.md — a plain-text pitch for your project that tells the story, communicates the vision, and makes the case. Not a README (that's for users). Not a pitch deck (that's theater). This is the argument for why this thing should exist, written clearly enough that it speaks for itself.",
+      "version": "0.1.3"
+    },
+    {
+      "name": "tui-design",
+      "source": "./org/skills/tui-design",
+      "description": "Build terminal user interfaces for Manzanita Research — warm, textured, California-rooted TUI design for CLI tools and interactive terminals. Go + Bubble Tea + Lip Gloss. Use when building TUI dashboards, interactive CLIs, terminal menus, status displays, or any terminal interface for Manzanita projects.",
+      "version": "0.1.3"
+    }
+  ]
+}

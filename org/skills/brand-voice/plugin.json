@@ -1,0 +1,7 @@
+{
+  "name": "brand-voice",
+  "description": "Write in the Manzanita Research voice — warm, grounded, direct, never corporate. Use for any prose output: READMEs, marketing pages, social posts, changelogs, error messages, UI copy, blog posts, or any text that carries the brand.",
+  "version": "0.1.2",
+  "license": "Complete terms in LICENSE.txt",
+  "skills": "./"
+}

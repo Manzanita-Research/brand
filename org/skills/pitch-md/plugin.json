@@ -1,0 +1,7 @@
+{
+  "name": "pitch-md",
+  "description": "Create or update a PITCH.md — a plain-text pitch for your project that tells the story, communicates the vision, and makes the case. Not a README (that's for users). Not a pitch deck (that's theater). This is the argument for why this thing should exist, written clearly enough that it speaks for itself.",
+  "version": "0.1.2",
+  "license": "Complete terms in LICENSE.txt",
+  "skills": "./"
+}
