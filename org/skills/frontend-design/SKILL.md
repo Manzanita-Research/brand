@@ -28,15 +28,49 @@ Typography is the voice. Get this right and everything else follows.
 
 | Role | Primary Pick | Alternates |
 |------|-------------|------------|
-| Display / Headlines | **Fraunces** (optical size axis, wonky axis — use it) | New Spirit, Recoleta, Lora |
+| Display / Headlines | **Fraunces** (variable — see font settings below) | Recoleta, Lora |
 | Body | **Source Serif 4** | Lora, Crimson Pro, Libre Baskerville |
-| Monospace / UI | **Geist Mono** | JetBrains Mono, IBM Plex Mono |
+| Monospace / UI | **Commit Mono** (custom Manzanita build — see settings below) | JetBrains Mono, IBM Plex Mono |
+
+**Fraunces variable font settings (mandatory):**
+Load from Google Fonts with all variable axes:
+```
+family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1;1,9..144,100..900,0..100,0..1
+```
+Always apply these variation settings — this is non-negotiable brand typography:
+```css
+.font-display {
+  font-variation-settings: 'WONK' 1, 'SOFT' 100;
+}
+```
+Never use Fraunces without `WONK 1` (wonky alternates) and `SOFT 100` (fully soft corners). Optical sizing (`opsz`) is automatic — don't set it manually.
+
+**Commit Mono settings (mandatory):**
+Self-hosted from `org/fonts/CommitMono-Variable.woff2`. This is a custom build with specific character alternates baked in.
+```css
+@font-face {
+  font-family: 'Commit Mono';
+  src: url('/fonts/CommitMono-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+```
+Always apply these OpenType features — this is the Manzanita monospace voice:
+```css
+.font-mono {
+  font-feature-settings:
+    'cv01' 1, 'cv03' 1, 'cv04' 1, 'cv06' 1, 'cv11' 1,
+    'ss01' 1, 'ss02' 1, 'ss03' 1, 'ss04' 1, 'ss05' 1;
+}
+```
+Never use Commit Mono without these features enabled. Do not set a global letter-spacing on the font — use per-element `em`-based tracking only where needed.
 
 **Rules:**
-- Headlines should feel expressive and slightly warm. Use Fraunces's `WONK` axis to add personality. Large sizes, negative letter-spacing (`-0.02em`), tight line-height (`1.1`).
+- Headlines should feel expressive and slightly warm. Large sizes, negative letter-spacing (`-0.02em`), tight line-height (`1.1`).
 - Body text gets generous line-height (`1.7–1.8`) and comfortable measure (`38rem` max-width). Use `text-wrap: pretty` for better rag.
 - `strong` text in prose should use `font-weight: 400` with a color shift to the primary text color — emphasis through contrast, not heaviness.
-- Never use: Inter, Roboto, Arial, Space Grotesk, Poppins, or system font stacks as the primary typeface.
+- Letter-spacing should always be in `em`, never `px`.
+- Never use: Inter, Roboto, Arial, Space Grotesk, Poppins, Geist Mono, or system font stacks as the primary typeface.
 
 ## Color & Light
 
@@ -148,7 +182,7 @@ Manzanita pages tell stories. The design serves the narrative.
 
 **Stack:** React + Tailwind CSS. Extend the Tailwind config with the Manzanita color tokens and font families.
 
-**Font loading:** Use `font-display: swap`. Load display fonts via `@font-face` declarations or Google Fonts. Geist Mono from Vercel's CDN or self-hosted.
+**Font loading:** Use `font-display: swap`. Load Fraunces from Google Fonts (with SOFT + WONK axes). Self-host Commit Mono from `org/fonts/CommitMono-Variable.woff2` — copy the file into each project's public/fonts directory.
 
 **Dark/light theming:** Use a `data-theme` attribute on the root element with CSS variables. Support `prefers-color-scheme` for automatic detection, with a manual toggle. Store preference in `localStorage`.
 
