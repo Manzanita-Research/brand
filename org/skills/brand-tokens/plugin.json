@@ -1,0 +1,7 @@
+{
+  "name": "brand-tokens",
+  "description": "Manzanita Research visual identity tokens — colors, typography, and texture direction. Apply these whenever building any visual interface (web, terminal, print, slides) for a Manzanita project. Other design skills (frontend-design, tui-design) reference this as their brand layer.",
+  "version": "0.1.0",
+  "license": "Complete terms in LICENSE.txt",
+  "skills": "./"
+}

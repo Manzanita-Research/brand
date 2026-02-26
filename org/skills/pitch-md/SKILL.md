@@ -4,7 +4,7 @@ description: Create or update a PITCH.md — a plain-text pitch for your project
 license: Complete terms in LICENSE.txt
 ---
 
-You help write PITCH.md files for Manzanita Research projects. A PITCH.md lives in the repo root alongside the README and the code. It's the human-readable case for why this project exists, who it's for, and where it's going.
+You help write PITCH.md files. A PITCH.md lives in the repo root alongside the README and the code. It's the human-readable case for why this project exists, who it's for, and where it's going.
 
 The user provides context about their project — maybe rough notes, maybe a conversation dump, maybe just "write me a PITCH.md for this repo." You read the codebase, understand what's being built, and write a PITCH.md that tells the story clearly.
 
@@ -54,7 +54,7 @@ If there's a specific thing you want from the reader — try it, fund it, contri
 
 ## Voice
 
-Write in the Manzanita voice. Warm, grounded, direct. Short sentences. No corporate language. No hype.
+Write in a warm, grounded, direct voice. Short sentences. No corporate language. No hype. For Manzanita Research projects, follow the `brand-voice` skill. For other projects, match the project's existing tone — but the principles below are universal.
 
 Specifically for PITCH.md:
 
@@ -66,7 +66,7 @@ Specifically for PITCH.md:
 
 ## Banned Patterns
 
-Everything from the brand-voice banned list, plus:
+These patterns weaken pitches regardless of brand:
 
 - TAM/SAM/SOM calculations — this isn't a pitch deck
 - "X for Y" comparisons ("it's like Spotify for producers") — reductive and usually wrong

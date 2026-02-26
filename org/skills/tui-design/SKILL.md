@@ -1,124 +1,117 @@
 ---
 name: tui-design
-description: Build terminal user interfaces for Manzanita Research — warm, textured, California-rooted TUI design for CLI tools and interactive terminals. Go + Bubble Tea + Lip Gloss. Use when building TUI dashboards, interactive CLIs, terminal menus, status displays, or any terminal interface for Manzanita projects.
+description: "Build terminal user interfaces with craft and intention — information architecture, interaction design, and visual hierarchy in monospace. Go + Bubble Tea + Lip Gloss. Use when building TUI dashboards, interactive CLIs, terminal menus, status displays, or any terminal interface. For Manzanita Research projects, this skill works alongside brand-tokens for the color palette."
 license: Complete terms in LICENSE.txt
 ---
 
-You are the TUI designer for Manzanita Research, an independent AI lab building tools for musicians and producers. Every terminal interface you create carries the spirit of the brand: warm, grounded, handcrafted, Californian. The terminal is an intimate space — just you and the machine — and it should feel like that. Not sterile. Not corporate. Like a well-worn notebook with good handwriting.
+# TUI Design
+
+You build terminal user interfaces with the same care you'd bring to a physical instrument. The terminal is an intimate space — just you and the machine — and it should feel like that. Not sterile. Not noisy. Like a well-organized workshop where every tool is within reach and every label is legible.
 
 The user provides what to build. You design and implement it in Go with Bubble Tea and Lip Gloss, production-grade and thoughtful.
 
-## The Manzanita TUI Aesthetic
+**For Manzanita Research projects:** Read the `brand-tokens` skill for the color palette. This skill handles the craft of TUI design; brand-tokens handles the specific palette values.
+
+## Design Philosophy
 
 The terminal is a constraint, not a limitation. Constraints are where character lives.
 
-**The feeling:** A warm workshop, not a control room. Information presented with care, not dumped. The kind of CLI where you notice someone thought about the spacing, the wording, the rhythm of the output. Like the Whole Earth Catalog's index pages — dense with information but beautifully organized.
+**The feeling:** Information presented with care, not dumped. The kind of CLI where you notice someone thought about the spacing, the wording, the rhythm of the output. Like the Whole Earth Catalog's index pages — dense with information but beautifully organized.
 
-**What it is:** Calm. Readable. Warm despite the monospace grid. Status that communicates at a glance. Text that sounds like a person wrote it.
+**What it is:** Calm. Readable. Status that communicates at a glance. Text that sounds like a person wrote it.
 
-**What it is NOT:** Rainbow ANSI vomit. Boxes around everything. ASCII art logos on startup. Emoji-heavy output. Progress bars with cute animations that slow things down. Anything that looks like it was built to impress in a demo GIF rather than to be used daily.
+**What it is not:** Rainbow ANSI vomit. Boxes around everything. ASCII art logos on startup. Emoji-heavy output. Progress bars with cute animations that slow things down. Anything built to impress in a demo GIF rather than to be used daily.
 
-## Color Palette
+## Color in Terminals
 
-Terminals are intimate. The palette is restrained — warm where it counts, muted everywhere else.
+Terminals are intimate. The palette should be restrained — color where it counts, muted everywhere else.
 
-**Core Lip Gloss colors:**
+### Principles
+
+- **Color sparingly.** Most text should be the terminal's default color or a light/muted tone. Color marks meaning, not decoration. If everything is colored, nothing stands out.
+- **Status uses natural tones.** Map status to a landscape palette: greens for good/healthy, gold/amber for caution/partial, warm reds for problems/errors, a primary accent for active/selected. These feel gentler than pure red/green/blue alarm colors.
+- **Never use pure red, green, or blue.** `#FF0000`, `#00FF00`, `#0000FF` are alarm colors. We don't alarm. Use muted, warm versions.
+- **Respect `NO_COLOR`.** Honor the `NO_COLOR` environment variable (https://no-color.org/). Degrade gracefully to plain text.
+- **Test on both backgrounds.** Your palette should work on both dark and light terminal backgrounds. Muted, mid-range colors tend to survive both.
+
+### Lip Gloss Style Hierarchy
+
+Define a clear text hierarchy using style constants:
 
 ```go
-var (
-    colorTerracotta = lipgloss.Color("#C2704E")  // primary accent, active states, CTAs
-    colorSage       = lipgloss.Color("#8B9F7B")  // success, linked, good states
-    colorOchre      = lipgloss.Color("#C49A3C")  // warnings, partial states, highlights
-    colorCream      = lipgloss.Color("#F5ECD7")  // primary text on dark backgrounds
-    colorRust       = lipgloss.Color("#A0522D")  // errors, broken states
-    colorRedwood    = lipgloss.Color("#6B3A2A")  // deep accent, borders, emphasis
-    colorMuted      = lipgloss.Color("#8B7D6B")  // secondary text, descriptions
-    colorDim        = lipgloss.Color("#6B6356")  // tertiary text, hints, help text
-    colorFog        = lipgloss.Color("#E8E5DF")  // borders, dividers on dark backgrounds
-    colorLavender   = lipgloss.Color("#9B8EA8")  // subtle accent, tags, metadata
-)
+// Level 1: Section titles — bold, accented
+titleStyle := lipgloss.NewStyle().Bold(true).Foreground(accentColor)
+
+// Level 2: Item names — default weight, lighter color
+nameStyle := lipgloss.NewStyle().Foreground(textColor)
+
+// Level 3: Descriptions — muted
+descStyle := lipgloss.NewStyle().Foreground(mutedColor)
+
+// Level 4: Hints and help — dim
+hintStyle := lipgloss.NewStyle().Foreground(dimColor)
 ```
 
-**Rules:**
-- Use color sparingly. Most text should be the terminal's default or `colorCream`/`colorMuted`. Color marks meaning, not decoration.
-- Status indicators use the landscape palette: sage for good, ochre for partial/warning, rust for bad, terracotta for active/selected.
-- Never use pure red (`#FF0000`), pure green (`#00FF00`), or pure blue (`#0000FF`). These are alarm colors. We don't alarm.
-- Respect `NO_COLOR` and `TERM` environment variables. Degrade gracefully to no-color output.
-- Test on both dark and light terminal backgrounds. The muted palette is chosen to work on both.
+Keep all color definitions in one file (`styles.go`) so they're easy to swap for different projects or brand systems.
 
 ## Typography & Spacing
 
 You're on a monospace grid. Every character placement is a design decision.
 
-**Principles:**
-- Generous whitespace. Let the terminal breathe. `MarginBottom(1)` between sections. `Padding(0, 2)` on containers.
-- Indent with 2 spaces for hierarchy, not 4. The terminal is narrow enough.
-- Maximum content width of 80 characters. Respect the classic terminal width even on wide screens.
-- Left-align everything. Centered text in a terminal looks lost.
-
-**Text hierarchy with Lip Gloss:**
-```go
-// Level 1: Section titles — bold, colored
-titleStyle := lipgloss.NewStyle().Bold(true).Foreground(colorTerracotta)
-
-// Level 2: Item names — default weight, lighter color
-nameStyle := lipgloss.NewStyle().Foreground(colorCream)
-
-// Level 3: Descriptions — muted
-descStyle := lipgloss.NewStyle().Foreground(colorMuted)
-
-// Level 4: Hints and help — dim
-hintStyle := lipgloss.NewStyle().Foreground(colorDim)
-```
-
-**Rules:**
-- Bold is for titles and emphasis only. If everything is bold, nothing is.
-- Italic in terminals is unreliable. Don't depend on it.
-- Use Lip Gloss `Width()` and `MaxWidth()` to prevent text from running wild on wide terminals.
+- **Generous whitespace.** Let the terminal breathe. `MarginBottom(1)` between sections. `Padding(0, 2)` on containers. Cramped TUIs are hostile TUIs.
+- **Indent with 2 spaces** for hierarchy, not 4. Terminal real estate is precious.
+- **Maximum content width of 80 characters.** Respect the classic terminal width even on wide screens. Use `MaxWidth()` to enforce this.
+- **Left-align everything.** Centered text in a terminal looks lost.
+- **Bold for titles and emphasis only.** If everything is bold, nothing is.
+- **Don't depend on italic.** It's unreliable across terminals and fonts.
 
 ## Status Indicators
 
 Status is the core vocabulary of a TUI. Get the symbols right.
 
-**Standard indicators:**
 ```
-●  linked / active / running      (sage)
-○  missing / inactive / stopped   (rust or muted)
-◐  partial / syncing / stale      (ochre)
-✓  complete / success             (sage)
-✕  failed / conflict              (rust)
->  cursor / selected              (terracotta)
+●  linked / active / running      (accent/success color)
+○  missing / inactive / stopped   (error or muted color)
+◐  partial / syncing / stale      (warning color)
+✓  complete / success             (success color)
+✕  failed / conflict              (error color)
+>  cursor / selected              (primary accent)
 ```
 
-**Rules:**
-- One symbol system per tool. Don't mix `✓`/`✕` with `●`/`○` for the same concept.
-- Status indicators go at the start of the line, before the content. Eyes scan the left edge.
-- Use color AND shape. Don't rely on color alone — the symbols should communicate even without color (`NO_COLOR`).
+### Rules
+
+- **One symbol system per tool.** Don't mix `✓`/`✕` with `●`/`○` for the same concept within the same interface.
+- **Indicators at the start of the line.** Eyes scan the left edge. Status goes before content.
+- **Color AND shape.** Don't rely on color alone — the symbols should communicate even without color, for `NO_COLOR` compatibility and colorblind users.
 
 ## Information Architecture
 
-**Dashboard views** (the default when you launch a TUI):
+### Dashboard Views (the default when you launch a TUI)
+
 - Show the most important state at a glance. No scrolling needed for the summary.
 - Group by the highest-level concept (org, project, category) then show detail inline.
 - Counts and summaries over exhaustive lists. "3/5 linked" over listing all five.
 - Detail on demand — press enter or a key to drill in.
 
-**List views:**
+### List Views
+
 - Use Bubble Tea's `list` component for anything scrollable.
-- Show 2-3 pieces of metadata per item, not everything. The rest goes in a detail view.
+- Show 2–3 pieces of metadata per item, not everything. The rest goes in a detail view.
 - Filter and search should be available but not visually prominent until activated.
 
-**Progress and action views:**
+### Progress and Action Views
+
 - Show what's happening, what happened, and what's next.
 - Results grouped by outcome (created, skipped, errors) not by execution order.
 - Counts at the top, details below. The summary is the headline.
 
 ## Interaction Design
 
-**Key bindings should feel natural:**
+### Key Bindings
+
 ```
 q / ctrl+c    quit (always)
-j/k or ↑/↓    navigate (always in lists)
+j/k or up/down    navigate (always in lists)
 enter          select / drill in / confirm
 esc            back / cancel
 s              sync (when applicable)
@@ -126,25 +119,28 @@ r              refresh
 ?              help
 ```
 
-**Rules:**
-- `q` always quits. No confirmation dialog. Trust the user.
-- Show available keys at the bottom of every view. Keep it to one line. Dim styling.
-- Vim-style navigation (`j`/`k`) alongside arrow keys. Both work, always.
-- Never require typing a full word when a single key will do.
-- Interactive elements should have a visible cursor/highlight. The user should always know where they are.
+### Rules
+
+- **`q` always quits.** No confirmation dialog. Trust the user.
+- **Show available keys at the bottom of every view.** Keep it to one line, in dim styling. This is the user's safety net.
+- **Vim-style navigation (`j`/`k`) alongside arrow keys.** Both work, always.
+- **Single keys over typed words.** Never require typing a full word when a single key will do.
+- **Visible cursor/highlight.** The user should always know where they are. A clear selection indicator is the most important visual element in any interactive list.
 
 ## Language & Copy
 
-The terminal is where the brand voice matters most. Every string is read closely.
+Every string in a TUI is read closely. The tone matters.
 
-**Principles:**
-- Lowercase for status messages. "3 linked, 2 already up to date" not "3 Linked, 2 Already Up To Date."
-- Active voice, present tense. "syncing..." not "Sync in progress..."
-- Name things plainly. "no orgs found" not "No organizations were discovered."
-- Error messages should say what happened and what to do. "can't read chaparral.json — check it exists and is valid JSON" not "Error: ENOENT."
-- Help text should be warm and brief. "add a chaparral.json to a brand repo to get started" not "Please configure a manifest file in your organization's brand repository."
+### Principles
 
-**Never say:**
+- **Lowercase for status messages.** "3 linked, 2 already up to date" not "3 Linked, 2 Already Up To Date."
+- **Active voice, present tense.** "syncing..." not "Sync in progress..."
+- **Name things plainly.** "no projects found" not "No projects were discovered."
+- **Error messages say what happened and what to do.** "can't read config.json — check it exists and is valid JSON" not "Error: ENOENT."
+- **Warm, brief help text.** "add a config file to get started" not "Please configure a manifest file in your repository."
+
+### Never Say
+
 - "Successfully" — if it worked, just say what happened.
 - "Please" — we're not a waiter. Just say what to do.
 - "Error:" as a prefix — the context makes it clear.
@@ -152,7 +148,8 @@ The terminal is where the brand voice matters most. Every string is read closely
 
 ## Bubble Tea Architecture
 
-**Model structure:**
+### Model Structure
+
 ```go
 type Model struct {
     // State
@@ -170,14 +167,16 @@ type Model struct {
 }
 ```
 
-**Rules:**
-- One model per TUI. Use a `view` enum to switch between screens, not separate programs.
-- All data loading happens in `Cmd` functions, never in `Update` or `View`. Keep the render loop fast.
-- `View()` is a pure function of state. No side effects. No I/O.
-- Handle `tea.WindowSizeMsg` to adapt layout to terminal size.
-- Always handle `ctrl+c` in every view. The user must always be able to exit.
+### Rules
 
-**Message pattern:**
+- **One model per TUI.** Use a `view` enum to switch between screens, not separate programs.
+- **Data loading in `Cmd` functions only.** Never in `Update` or `View`. Keep the render loop fast.
+- **`View()` is a pure function of state.** No side effects. No I/O. It reads the model and returns a string.
+- **Handle `tea.WindowSizeMsg`** to adapt layout to terminal size. Store width/height in the model.
+- **Always handle `ctrl+c` in every view.** The user must always be able to exit.
+
+### Message Pattern
+
 ```go
 // Data loading results as messages
 type dataLoaded struct {
@@ -194,18 +193,17 @@ type actionDone struct {
 
 ## Headless Mode
 
-Every TUI tool should also work without the TUI. Same logic, plain text output.
+Every TUI tool should also work without the TUI. Same logic, plain text output. This is important because it makes the tool scriptable, pipeable, and testable.
 
-**Rules:**
-- Subcommands (`sync`, `status`, `help`) run headless by default.
-- No subcommand launches the TUI.
-- Headless output uses the same language but simpler formatting — no Lip Gloss, just plain text with Unicode indicators.
-- Exit codes: 0 for success, 1 for errors. Pipe-friendly.
-- Headless output should be parseable by humans. Machine-parseable output (JSON) is a separate flag if needed, not the default.
+- **Subcommands** (`sync`, `status`, `help`) run headless by default.
+- **No subcommand** (bare invocation) launches the TUI.
+- **Headless output** uses the same language but simpler formatting — no Lip Gloss, just plain text with Unicode indicators.
+- **Exit codes:** 0 for success, 1 for errors. Pipe-friendly.
+- **Human-parseable by default.** Machine-parseable output (JSON) is a separate `--json` flag if needed, not the default.
 
 ## Implementation Notes
 
-**Stack:** Go with Bubble Tea (charmbracelet/bubbletea), Lip Gloss (charmbracelet/lipgloss), and Bubbles (charmbracelet/bubbles) for standard components.
+**Stack:** Go with [Bubble Tea](https://github.com/charmbracelet/bubbletea), [Lip Gloss](https://github.com/charmbracelet/lipgloss), and [Bubbles](https://github.com/charmbracelet/bubbles) for standard components.
 
 **Project structure:**
 ```
@@ -222,12 +220,12 @@ internal/<domain>/       — business logic, independent of TUI
 - Load data asynchronously via `Cmd`. Show "loading..." states, not frozen screens.
 
 **Testing:**
-- Business logic in `internal/<domain>/` is independently testable.
+- Business logic in `internal/<domain>/` is independently testable — no TUI dependency.
 - TUI testing via Bubble Tea's `teatest` package for integration tests.
-- Test headless output as plain strings.
+- Test headless output as plain strings — easy to assert against.
 
 **Accessibility:**
-- Screen readers work with terminal output. Use clear, semantic text — not visual-only indicators.
-- Every status indicator should have a text equivalent nearby.
-- Respect `NO_COLOR` (https://no-color.org/).
-- Ensure the TUI works without mouse support — keyboard-only is the primary input mode.
+- Screen readers work with terminal output. Use clear, semantic text.
+- Every status indicator should have a text equivalent nearby (not just a colored dot).
+- Respect `NO_COLOR`.
+- Keyboard-only is the primary input mode — mouse support is a bonus, not a requirement.

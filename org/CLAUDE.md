@@ -21,15 +21,6 @@ Manzanita speaks like a musician who happens to be an engineer. When writing cop
 - Instruments, not automations. Uplift musicians, never replace them.
 - Post-capitalist ethos: build to give away power, not capture markets.
 
-## Visual Direction
-
-- Palette: warm, muted, sun-faded — terracotta, sage, ochre, cream, rust, dried lavender. Accents in deep redwood brown (manzanita bark).
-- Nothing neon, nothing pure black-on-white.
-- Typography should feel human, with weight and character. No geometric sans-serifs from startup templates.
-- **Display font: Fraunces** (variable, from Google Fonts). Always set `font-variation-settings: 'WONK' 1, 'SOFT' 100`. Never use Fraunces without wonk and full soft — that's the brand voice in type. Load from Google Fonts with all variable axes: `family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1;1,9..144,100..900,0..100,0..1`. Optical sizing (`opsz`) is automatic — don't set it manually.
-- **Monospace font: Commit Mono** (custom Manzanita build, self-hosted from `org/fonts/CommitMono-Variable.woff2`). Always enable OpenType features: `font-feature-settings: 'cv01' 1, 'cv03' 1, 'cv04' 1, 'cv06' 1, 'cv11' 1, 'ss01' 1, 'ss02' 1, 'ss03' 1, 'ss04' 1, 'ss05' 1`. Never use Geist Mono, Inter Mono, or system monospace as the primary mono font.
-- Photography feel: candid, natural-light, slightly grainy. Film stock over digital.
-
 ## Project Naming
 
 Individual projects are named after California native plants: Toyon, Ceanothus, Yerba Buena, Lupine, Buckeye, Madrone, Sage.

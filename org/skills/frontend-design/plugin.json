@@ -1,7 +1,7 @@
 {
   "name": "frontend-design",
-  "description": "Build frontend interfaces for Manzanita Research — warm, editorial, California-rooted design for music tools and brand pages. React + Tailwind. Use when building web components, pages, landing pages, dashboards, plugin UIs, or any web interface for Manzanita projects.",
-  "version": "0.1.2",
+  "description": "Build frontend interfaces with intentional, craft-level design — editorial layout, expressive typography, textured atmosphere, and considered motion. React + Tailwind. Use when building web components, pages, landing pages, dashboards, plugin UIs, or any web interface. For Manzanita Research projects, works alongside brand-tokens for visual identity.",
+  "version": "0.2.0",
   "license": "Complete terms in LICENSE.txt",
   "skills": "./"
 }
