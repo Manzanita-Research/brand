@@ -1,6 +1,6 @@
 ---
 name: brand-voice
-description: Write in the Manzanita Research voice — warm, grounded, direct, never corporate. Use for any prose output: READMEs, marketing pages, social posts, changelogs, error messages, UI copy, blog posts, or any text that carries the brand.
+description: "Write in the Manzanita Research voice — warm, grounded, direct, never corporate. Use for any prose output: READMEs, marketing pages, social posts, changelogs, error messages, UI copy, blog posts, or any text that carries the brand."
 license: Complete terms in LICENSE.txt
 ---
 
@@ -28,12 +28,18 @@ Never use these. They're corporate filler that means nothing:
 > leverage, ecosystem, disrupt, revolutionize, game-changing, cutting-edge, unlock, empower, seamless, next-gen, synergy, scalable, innovative, robust, streamline, optimize, holistic, paradigm, best-in-class, turnkey, end-to-end, stakeholder, actionable, move the needle, low-hanging fruit, deep dive, circle back, at the end of the day
 
 Also avoid:
+
 - "We're excited to announce" — just announce it.
 - "We're thrilled" / "We're proud" — show, don't tell.
 - "Introducing" as a headline — say what the thing is instead.
 - Exclamation marks in professional copy. One per page maximum, and only if it's genuinely surprising.
 - Em dashes as a crutch. One per paragraph maximum. Use periods instead.
 - "Simply" / "just" / "easily" — these minimize the reader's experience. If it were simple, they wouldn't need the docs.
+
+## Punctuation, typography & grammar
+
+- We paid a lot of money to go to graphic design school: use real curly quotes & apostrophes instead of primes and ticks.
+- If you use em-dashes, separate them from the word either side with hairline spaces or quarter spaces.
 
 ## What Good Manzanita Writing Sounds Like
 
@@ -52,13 +58,15 @@ Also avoid:
 ## Format-Specific Guidance
 
 ### READMEs and Documentation
-- Open with what the thing *is*, in one sentence. Not what it will become, not the vision — what it does right now.
+
+- Open with what the thing _is_, in one sentence. Not what it will become, not the vision — what it does right now.
 - Second paragraph: who it's for and why it exists.
 - Then: how to use it. Code examples early. Explanations after.
 - Keep sections short. Use headers generously. People scan.
 - End with links, credits, or a human touch — not a sales pitch.
 
 ### Marketing Pages and Landing Copy
+
 - Lead with the feeling, not the feature list. What does it feel like to use this?
 - Short paragraphs. Lots of whitespace (conceptually — the designer handles the literal whitespace).
 - One idea per section. Let each one breathe.
@@ -66,6 +74,7 @@ Also avoid:
 - No testimonial theater. If there are quotes, they should be real and attributed.
 
 ### Social Media (LinkedIn, Twitter/X, Bluesky)
+
 - Write like a person, not a brand account.
 - No hashtag spam. One or two if they're genuinely relevant.
 - No engagement-bait hooks ("You won't believe..." / "Here's why..." / "Stop doing X").
@@ -74,6 +83,7 @@ Also avoid:
 - LinkedIn specifically: no ThinkBoi formatting (single-sentence paragraphs stacked for fake drama). Write in actual paragraphs.
 
 ### Changelogs and Release Notes
+
 - Lead with what changed, not version numbers.
 - Group by impact: what matters most to the person using this?
 - Be specific. "Fixed audio dropout when switching presets at high buffer sizes" not "Bug fixes and improvements."
@@ -81,6 +91,7 @@ Also avoid:
 - It's fine to say "Known issue: X. Working on it."
 
 ### Error Messages and UI Copy
+
 - Tell the person what happened, then what to do about it.
 - No "Oops!" No cutesy error pages. Respect that something went wrong.
 - Use plain language. "Couldn't save your file" not "An error occurred during the save operation."
@@ -88,7 +99,8 @@ Also avoid:
 - Buttons and labels: use verbs. "Save project" not "Submit." "Try again" not "OK."
 
 ### Commit Messages and PR Descriptions
-- Lowercase. Concise. Describe the *why*, not just the what.
+
+- Lowercase. Concise. Describe the _why_, not just the what.
 - Good: "fix audio dropout when switching presets at high buffer sizes"
 - Bad: "Fixed bug" / "Update main.ts" / "Misc improvements"
 - PR descriptions: what changed, why, and how to test it. That's it.

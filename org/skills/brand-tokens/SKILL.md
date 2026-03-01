@@ -1,6 +1,7 @@
 ---
 name: brand-tokens
 description: "Manzanita Research visual identity tokens — colors, typography, and texture direction. Apply these whenever building any visual interface (web, terminal, print, slides) for a Manzanita project. Other design skills (frontend-design, tui-design) reference this as their brand layer. Use this skill when you need the specific color values, font settings, or visual identity rules for Manzanita Research, even if you're not using one of the design skills."
+license: Complete terms in LICENSE.txt
 ---
 
 # Manzanita Research — Visual Identity Tokens
@@ -19,18 +20,18 @@ Whole Earth Catalog meets Laurel Canyon. Analog warmth in digital spaces. Sun-fa
 
 These are the canonical Manzanita colors. Use the semantic names, not raw hex — it makes intent clear.
 
-| Token | Hex | Role |
-|---|---|---|
-| cream | `#FAF9F6` | Page backgrounds, canvas |
-| warm-black | `#2C2C2C` | Primary text |
-| bark | `#6B3A2A` | Deep accent, manzanita bark. Borders, emphasis |
-| terracotta | `#C2714F` | Primary warm accent. CTAs, active states |
-| sage | `#8B9E7E` | Success, healthy, linked, good states |
-| ochre | `#C49A3C` | Highlights, warnings, gold accent |
-| rust | `#A0522D` | Tertiary accent, error states |
-| lavender-dried | `#9B8EA8` | Subtle accent, tags, metadata |
-| fog | `#E8E5DF` | Borders, dividers, subtle separators |
-| dusk | `#5C5C5C` | Muted/secondary text |
+| Token          | Hex       | Role                                           |
+| -------------- | --------- | ---------------------------------------------- |
+| cream          | `#FAF9F6` | Page backgrounds, canvas                       |
+| warm-black     | `#2C2C2C` | Primary text                                   |
+| bark           | `#6B3A2A` | Deep accent, manzanita bark. Borders, emphasis |
+| terracotta     | `#C2714F` | Primary warm accent. CTAs, active states       |
+| sage           | `#8B9E7E` | Success, healthy, linked, good states          |
+| ochre          | `#C49A3C` | Highlights, warnings, gold accent              |
+| rust           | `#A0522D` | Tertiary accent, error states                  |
+| lavender-dried | `#9B8EA8` | Subtle accent, tags, metadata                  |
+| fog            | `#E8E5DF` | Borders, dividers, subtle separators           |
+| dusk           | `#5C5C5C` | Muted/secondary text                           |
 
 ### Color rules
 
@@ -82,12 +83,17 @@ Three typefaces. Each has a specific job.
 Variable font from Google Fonts. Warm, expressive, slightly wonky — the brand voice in type.
 
 **Critical settings — always apply both:**
+
 ```css
-font-variation-settings: 'WONK' 1, 'SOFT' 100;
+font-variation-settings:
+  "WONK" 1,
+  "SOFT" 100;
 ```
+
 Never use Fraunces without wonk and full soft. Without these it looks like a different font entirely.
 
 **Loading from Google Fonts** (include all variable axes):
+
 ```
 family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1;1,9..144,100..900,0..100,0..1
 ```
@@ -109,8 +115,19 @@ Clean, readable serif with warmth. Available on Google Fonts as a variable font.
 Custom Manzanita build, self-hosted from `org/fonts/CommitMono-Variable.woff2`.
 
 **OpenType features — always enable:**
+
 ```css
-font-feature-settings: 'cv01' 1, 'cv03' 1, 'cv04' 1, 'cv06' 1, 'cv11' 1, 'ss01' 1, 'ss02' 1, 'ss03' 1, 'ss04' 1, 'ss05' 1;
+font-feature-settings:
+  "cv01" 1,
+  "cv03" 1,
+  "cv04" 1,
+  "cv06" 1,
+  "cv11" 1,
+  "ss01" 1,
+  "ss02" 1,
+  "ss03" 1,
+  "ss04" 1,
+  "ss05" 1;
 ```
 
 **Use for:** Code blocks, UI labels in tool interfaces, terminal output, data tables. Anywhere precision matters.
