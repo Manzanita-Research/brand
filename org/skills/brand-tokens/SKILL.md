@@ -102,13 +102,13 @@ Optical sizing (`opsz`) is automatic — don't set it manually.
 
 **Use for:** Headlines, hero text, feature titles, anything that needs personality. Set large, with negative letter-spacing (`-0.02em`) and tight line-height (`1.1`).
 
-### Body: Source Serif 4
+### Body: Literata
 
-Clean, readable serif with warmth. Available on Google Fonts as a variable font.
+Warm, bookish variable serif. Designed for long reading — looks best at 16px. Load weights 400 and 600 from Google Fonts.
 
-**Alternatives** (if Source Serif 4 isn't available): Lora, Crimson Pro, Libre Baskerville. All are warm serifs that pair well with Fraunces.
+**Alternatives** (if Literata isn't available): Lora, Crimson Pro, Libre Baskerville. All are warm serifs that pair well with Fraunces.
 
-**Use for:** Body text, documentation, long-form reading. Set with generous line-height (`1.7`–`1.8`), comfortable measure (`max-width: 38rem`), and `text-wrap: pretty` where supported.
+**Use for:** Body text, documentation, long-form reading. Set at `font-size: 16px` with generous line-height (`1.7`–`1.8`), comfortable measure (`max-width: 38rem`), and `text-wrap: pretty` where supported.
 
 ### Monospace: Commit Mono
 
