@@ -28,10 +28,18 @@ Individual projects are named after California native plants: Toyon, Ceanothus, 
 ## Technical Defaults
 
 - Prefer Bun over Node when starting new JS/TS projects.
-- Prefer Tailwind CSS for styling.
+- Prefer Tailwind CSS v4 for styling (CSS-based config with `@theme` blocks, not the v3 JS config).
 - Prefer React for UI work.
 - Write tests for anything non-trivial.
 - Commit messages should be lowercase, concise, and describe the why.
+
+### Framework selection
+
+Pick the right tool for the shape of the project:
+
+- **Next.js** — Rich interactive products. Apps with routing, auth, server components, API routes. When you need the full React framework.
+- **Astro** — Marketing pages, docs sites, static-ish sites with islands of interactivity. When most of the page is content and only small parts need JS.
+- **Vite** — Simple prototypes, tools, and experiments that don't need Next.js features but also don't need static rendering. The lightweight default.
 
 ## Homie-Driven Development
 
