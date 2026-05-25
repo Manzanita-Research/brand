@@ -2,5 +2,6 @@
   "org": "manzanita-research",
   "claude_md": "org/CLAUDE.md",
   "skills_dir": "org/skills",
+  "output_styles_dir": "org/output-styles",
   "exclude": ["brand"]
 }
